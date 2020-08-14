@@ -1,1 +1,3 @@
-<p>establishment-list works!</p>
+<div *ngFor="let establishment of establishments; let index = index;">
+  <app-establishment-card [establishment]="establishment"></app-establishment-card>
+</div>

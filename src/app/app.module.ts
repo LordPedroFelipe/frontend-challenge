@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -59,6 +60,7 @@ import { EstablishmentListComponent } from './components/establishments/establis
     MatPaginatorModule,
     MatSortModule,
     HttpClientModule,
+    FlexLayoutModule,
   ],
   providers: [{
     provide: LOCALE_ID,
