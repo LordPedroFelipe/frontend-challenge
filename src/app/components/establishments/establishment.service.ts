@@ -22,16 +22,20 @@ export class EstablishmentService {
     });
   }
 
-  create(establishment: Establishment): Observable<Establishment> {
-    return this.http.post<Establishment>(this.baseUrl, establishment).pipe(
-      map((obj) => obj),
-      catchError((e) => this.errorHandler(e))
-    );
-  }
-
   read(): Observable<Establishment[]> {
     return this.http.get<Establishment[]>(this.baseUrl).pipe(
-      map((obj) => obj),
+      map((obj) => {
+        obj.map((e, index) => {
+          const storedEstablishment = JSON.parse(localStorage.getItem(e.id));
+          if (storedEstablishment) {
+            obj[index].name = storedEstablishment.name;
+            obj[index].email = storedEstablishment.email;
+            obj[index].phone = storedEstablishment.phone;
+            obj[index].address = storedEstablishment.address;
+          }
+        });
+        return obj;
+      }),
       catchError((e) => this.errorHandler(e))
     );
   }
@@ -39,29 +43,26 @@ export class EstablishmentService {
   readById(id: number): Observable<Establishment> {
     const url = `${this.baseUrl}/${id}`;
     return this.http.get<Establishment>(url).pipe(
-      map((obj) => obj),
+      map((obj) => {
+        const storedEstablishment = JSON.parse(localStorage.getItem(obj.id));
+        if (storedEstablishment) {
+          return storedEstablishment;
+        } else {
+          return obj;
+        }
+      }),
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  update(establishment: Establishment): Observable<Establishment> {
-    const url = `${this.baseUrl}/${establishment.id}`;
-    return this.http.put<Establishment>(url, establishment).pipe(
-      map((obj) => obj),
-      catchError((e) => this.errorHandler(e))
-    );
+  update(establishment: Establishment): Establishment {
+    localStorage.setItem(establishment.id, JSON.stringify(establishment));
+
+    return establishment;
   }
 
-  delete(id: number): Observable<Establishment> {
-    const url = `${this.baseUrl}/${id}`;
-    return this.http.delete<Establishment>(url).pipe(
-      map((obj) => obj),
-      catchError((e) => this.errorHandler(e))
-    );
-  }
-
-  errorHandler(e: any): Observable<any> {
-    this.showMessage('Ocorreu um erro!', true);
+  errorHandler(msg: any): Observable<any> {
+    this.showMessage(msg, true);
     return EMPTY;
   }
 }

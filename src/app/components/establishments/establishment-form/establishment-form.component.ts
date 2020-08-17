@@ -21,6 +21,7 @@ export class EstablishmentFormComponent implements OnInit {
   });
 
   constructor(
+    private router: Router,
     private activatedRoute: ActivatedRoute,
     private establishmentService: EstablishmentService,
     protected $formBuilder: FormBuilder
@@ -50,7 +51,25 @@ export class EstablishmentFormComponent implements OnInit {
   }
 
   submit(): void {
-    console.log('params');
+    try {
+      if (this.establishmentForm.invalid) {
+        throw new Error('Complete the form!');
+      }
+      const entity = this.establishmentForm.getRawValue();
+      if ( this.establishment.id) {
+        entity.id =  this.establishment.id;
+        const retorno = this.establishmentService.update(entity);
+        if (retorno.id) {
+          this.establishment = retorno;
+          this.establishmentService.showMessage('Successfully changed!', false);
+        }
+      }
+    } catch (err) {
+      this.establishmentService.errorHandler(err);
+    }
   }
 
+  back(): void {
+    this.router.navigateByUrl('/establishments');
+  }
 }

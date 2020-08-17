@@ -1,5 +1,5 @@
 
-<div fxLayout="row">
+<div fxLayout="row" *ngIf="establishment;">
   <div class="picture-width" fxLayout="column" fxFlex="10" fxLayoutAlign="space-between strech">
     <img class="picture" [src]="establishment.picture">
   </div>
@@ -22,7 +22,7 @@
 
 <mat-divider></mat-divider>
 
-<form [formGroup]="establishmentForm" (submit)="submit()" class="form">
+<form class="form" [formGroup]="establishmentForm" (submit)="submit()">
   <mat-form-field class="establishment-full-width">
     <mat-label>Company</mat-label>
     <input matInput formControlName="name">
@@ -55,8 +55,11 @@
     <input matInput formControlName="registered">
   </mat-form-field>
   
-  <div mat-dialog-actions align="end">
-    <button mat-raised-button color="primary">
+  <div mat-dialog-actions align="end" >
+    <button mat-raised-button color="basic" class="button-row" (click)="back()">
+      <i class="fas fa-save icon-save"></i>&nbsp;Back
+    </button>
+    <button mat-raised-button color="primary" class="button-row">
       <i class="fas fa-save icon-save"></i>&nbsp;Save
     </button>
   </div>
