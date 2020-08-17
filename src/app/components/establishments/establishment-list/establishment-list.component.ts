@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Establishment } from '../establishment.model';
 import { MatAccordion } from '@angular/material/expansion';
+import { Establishment } from '../establishment.model';
 import { EstablishmentService } from '../establishment.service';
 
 @Component({

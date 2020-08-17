@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Establishment } from '../establishment.model';
 
 @Component({
@@ -10,10 +11,15 @@ export class EstablishmentCardComponent implements OnInit {
 
   @Input() establishment: Establishment;
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     console.log(this.establishment);
   }
 
+  openForm(): void {
+    this.router.navigate(['/establishment/update/' + this.establishment.id ]);
+  }
 }
