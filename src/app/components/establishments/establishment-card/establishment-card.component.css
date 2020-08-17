@@ -4,6 +4,7 @@
   border-left-width: 7px;
   border-left-style: solid;
   border-left-color: #3f51b5;
+  cursor: pointer;
 }
 
 .picture-width {
