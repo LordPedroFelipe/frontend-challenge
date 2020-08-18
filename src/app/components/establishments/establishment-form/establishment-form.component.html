@@ -38,11 +38,6 @@
     <mat-label>Address</mat-label>
     <textarea matInput formControlName="address"></textarea>
   </mat-form-field>
-  
-  <mat-form-field class="establishment-full-width">
-    <mat-label>Registered</mat-label>
-    <input matInput formControlName="registered">
-  </mat-form-field>
 
   <table class="establishment-full-width" cellspacing="0">
     <tr>
@@ -66,6 +61,11 @@
       </td>
     </tr>
   </table>
+  
+  <mat-form-field class="establishment-full-width">
+    <mat-label>Registered</mat-label>
+    <input matInput formControlName="registered">
+  </mat-form-field>
   
   <div mat-dialog-actions align="end" >
     <button mat-raised-button color="basic" class="button-row" (click)="back()">
