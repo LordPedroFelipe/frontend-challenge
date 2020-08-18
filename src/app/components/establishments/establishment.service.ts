@@ -32,6 +32,9 @@ export class EstablishmentService {
             obj[index].email = storedEstablishment.email;
             obj[index].phone = storedEstablishment.phone;
             obj[index].address = storedEstablishment.address;
+            obj[index].latitude = storedEstablishment.latitude;
+            obj[index].longitude = storedEstablishment.longitude;
+            obj[index].picture = storedEstablishment.picture;
           }
         });
         return obj;

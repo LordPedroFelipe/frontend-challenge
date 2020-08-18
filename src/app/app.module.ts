@@ -31,6 +31,7 @@ import { FooterComponent } from './components/template/footer/footer.component';
 import { EstablishmentFormComponent } from './components/establishments/establishment-form/establishment-form.component';
 import { EstablishmentCardComponent } from './components/establishments/establishment-card/establishment-card.component';
 import { EstablishmentListComponent } from './components/establishments/establishment-list/establishment-list.component';
+import { EstablishmentInfoComponent } from './components/establishments/establishment-info/establishment-info.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { EstablishmentListComponent } from './components/establishments/establis
     EstablishmentComponent,
     EstablishmentFormComponent,
     EstablishmentCardComponent,
-    EstablishmentListComponent
+    EstablishmentListComponent,
+    EstablishmentInfoComponent
   ],
   imports: [
     BrowserModule,
