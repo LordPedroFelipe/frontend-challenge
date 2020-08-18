@@ -24,20 +24,20 @@ export class EstablishmentService {
 
   read(): Observable<Establishment[]> {
     return this.http.get<Establishment[]>(this.baseUrl).pipe(
-      map((obj) => {
-        obj.map((e, index) => {
-          const storedEstablishment = JSON.parse(localStorage.getItem(e.id));
+      map((establishments) => {
+        establishments.map((obj, index) => {
+          const storedEstablishment = JSON.parse(localStorage.getItem(obj.id));
           if (storedEstablishment) {
-            obj[index].name = storedEstablishment.name;
-            obj[index].email = storedEstablishment.email;
-            obj[index].phone = storedEstablishment.phone;
-            obj[index].address = storedEstablishment.address;
-            obj[index].latitude = storedEstablishment.latitude;
-            obj[index].longitude = storedEstablishment.longitude;
-            obj[index].picture = storedEstablishment.picture;
+            establishments[index].name = storedEstablishment.name;
+            establishments[index].email = storedEstablishment.email;
+            establishments[index].phone = storedEstablishment.phone;
+            establishments[index].address = storedEstablishment.address;
+            establishments[index].latitude = storedEstablishment.latitude;
+            establishments[index].longitude = storedEstablishment.longitude;
+            establishments[index].picture = storedEstablishment.picture;
           }
         });
-        return obj;
+        return establishments;
       }),
       catchError((e) => this.errorHandler(e))
     );
