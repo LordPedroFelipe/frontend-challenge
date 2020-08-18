@@ -8,7 +8,6 @@ import { Establishment } from '../establishment.model';
   styleUrls: ['./establishment-card.component.css']
 })
 export class EstablishmentCardComponent implements OnInit {
-
   @Input() establishment: Establishment;
 
   constructor(
@@ -16,7 +15,6 @@ export class EstablishmentCardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this.establishment);
   }
 
   openForm(): void {

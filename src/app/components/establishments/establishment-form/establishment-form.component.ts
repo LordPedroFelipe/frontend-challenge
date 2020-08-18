@@ -17,6 +17,9 @@ export class EstablishmentFormComponent implements OnInit {
     email: ['', Validators.required],
     phone: ['', Validators.required],
     address: ['', Validators.required],
+    picture: [''],
+    latitude: [''],
+    longitude: [''],
     registered: [''],
   });
 
@@ -44,6 +47,9 @@ export class EstablishmentFormComponent implements OnInit {
           email: establishment.email,
           phone: establishment.phone,
           address: establishment.address,
+          picture: establishment.picture,
+          latitude: establishment.latitude,
+          longitude: establishment.longitude,
           registered: establishment.registered
         });
       }
@@ -62,6 +68,7 @@ export class EstablishmentFormComponent implements OnInit {
         if (retorno.id) {
           this.establishment = retorno;
           this.establishmentService.showMessage('Successfully changed!', false);
+          this.router.navigateByUrl('/establishments');
         }
       }
     } catch (err) {

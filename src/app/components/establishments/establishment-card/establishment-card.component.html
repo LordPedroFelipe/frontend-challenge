@@ -1,16 +1,5 @@
 <mat-card class="card" (click)="openForm()">
   <mat-card-content>    
-    <div class="picture-width" fxLayout="column" fxFlex="10" fxLayoutAlign="space-between strech">
-      <img class="picture" [src]="establishment.picture">
-    </div>
-    <div fxLayout="column" fxFlex="90" fxLayoutAlign="space-between strech">
-      <div fxLayout="row" fxFlex="30">
-        <p class="label-1"> {{ establishment.name }}</p>
-        <p class="label-3"> {{ establishment.phone }}</p>
-      </div>
-      <div fxLayout="row" fxFlex="70">
-        <p class="label-2"> {{ establishment.address }} </p>
-      </div>
-    </div>
+    <app-establishment-info [establishment]="establishment"></app-establishment-info>
   </mat-card-content>
 </mat-card>

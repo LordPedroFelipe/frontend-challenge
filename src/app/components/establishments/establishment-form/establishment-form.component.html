@@ -1,17 +1,6 @@
 
 <div fxLayout="row" *ngIf="establishment;">
-  <div class="picture-width" fxLayout="column" fxFlex="10" fxLayoutAlign="space-between strech">
-    <img class="picture" [src]="establishment.picture">
-  </div>
-  <div fxLayout="column" fxFlex="90" fxLayoutAlign="space-between strech">
-    <div fxLayout="row" fxFlex="30">
-      <p class="label-1"> {{ establishment.name }}</p>
-      <p class="label-3"> {{ establishment.phone }}</p>
-    </div> 
-    <div fxLayout="row" fxFlex="70">
-      <p class="label-2"> {{ establishment.address }} </p>
-    </div>
-  </div>
+  <app-establishment-info [establishment]="establishment"></app-establishment-info>
 </div>
 
 <div fxLayout="row">
@@ -54,6 +43,29 @@
     <mat-label>Registered</mat-label>
     <input matInput formControlName="registered">
   </mat-form-field>
+
+  <table class="establishment-full-width" cellspacing="0">
+    <tr>
+      <td>
+        <mat-form-field class="establishment-full-width">
+          <mat-label>Picture</mat-label>
+          <input matInput formControlName="picture">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="establishment-full-width">
+          <mat-label>Latitude</mat-label>
+          <input matInput formControlName="latitude">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="establishment-full-width">
+          <mat-label>Longitude</mat-label>
+          <input matInput formControlName="longitude">
+        </mat-form-field>
+      </td>
+    </tr>
+  </table>
   
   <div mat-dialog-actions align="end" >
     <button mat-raised-button color="basic" class="button-row" (click)="back()">
