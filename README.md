@@ -33,6 +33,13 @@ Tecnologias utilizadas:
 
 Desenvolvido por Pedro Felipe - Aplicando conhecimentos Analista Desenvolvedor Web
 
+* Componentização em Angular 10
+* Consumo de WebService
+* Visualização de lista de estabelecimentos
+* Visualização de informações de um estabelecimento
+* Serviço para salvar alteração dos estabelecimentos com LocalStorage
+
+
 #### Pré-requisitos para iniciar o projeto
 
  > ```Pacote NPM```
