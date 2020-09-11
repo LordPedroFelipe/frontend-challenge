@@ -3,6 +3,7 @@
   align-items: center;
   position: fixed;
   z-index: 6;
+  background: #ffffff
 }
 
 .header a {
