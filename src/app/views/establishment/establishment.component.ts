@@ -13,7 +13,7 @@ export class EstablishmentComponent implements OnInit {
   ) {
     headerService.setHeaderData = {
       title: 'Establishment',
-      icon: 'storefront',
+      icon: 'home',
       routeUrl: '/establishment'
     };
   }
