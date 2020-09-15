@@ -17,9 +17,12 @@ export class EstablishmentListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getEstablishments();
+  }
+
+  getEstablishments(): void {
     this.establishmentService.read().subscribe(establishments => {
       this.establishments = establishments;
     });
   }
-
 }

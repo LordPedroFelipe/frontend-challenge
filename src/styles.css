@@ -20,3 +20,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background-color: #e35e6b;
   color: #fff;
 }
+
+.body-component {
+  margin-bottom: 30px;
+  margin-top: 4.5rem;
+}

@@ -16,6 +16,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,6 +34,8 @@ import { EstablishmentFormComponent } from './components/establishments/establis
 import { EstablishmentCardComponent } from './components/establishments/establishment-card/establishment-card.component';
 import { EstablishmentListComponent } from './components/establishments/establishment-list/establishment-list.component';
 import { EstablishmentInfoComponent } from './components/establishments/establishment-info/establishment-info.component';
+import { NasaComponent } from './views/nasa/nasa.component';
+import { NasaDayComponent } from './components/nasa/nasa-day/nasa-day.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,9 @@ import { EstablishmentInfoComponent } from './components/establishments/establis
     EstablishmentFormComponent,
     EstablishmentCardComponent,
     EstablishmentListComponent,
-    EstablishmentInfoComponent
+    EstablishmentInfoComponent,
+    NasaComponent,
+    NasaDayComponent
   ],
   imports: [
     BrowserModule,
@@ -63,13 +69,15 @@ import { EstablishmentInfoComponent } from './components/establishments/establis
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     HttpClientModule,
     FlexLayoutModule,
     ReactiveFormsModule,
   ],
   providers: [{
     provide: LOCALE_ID,
-    useValue: 'pt-BR'
+    useValue: 'pt-BR',
   }],
   bootstrap: [
     AppComponent
